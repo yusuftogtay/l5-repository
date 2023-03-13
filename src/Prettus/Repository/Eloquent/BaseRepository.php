@@ -1,6 +1,6 @@
 <?php
 
-namespace Prettus\Repository\Eloquent;
+namespace YusufTogtay\Repository\Eloquent;
 
 use Closure;
 use Exception;
@@ -162,7 +162,7 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
                     return $validator;
                 }
             } else {
-                throw new Exception(trans('repository::packages.prettus_laravel_validation_required'));
+                throw new Exception(__('repository::packages.prettus_laravel_validation_required'));
             }
         }
 
@@ -1069,6 +1069,7 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
      */
     protected function applyConditions(array $where)
     {
+        $likes = [];
         foreach ($where as $field => $value) {
             if (is_array($value)) {
                 list($field, $condition, $val) = $value;
@@ -1145,6 +1146,9 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
                     case 'RAW':
                         $this->model = $this->model->whereRaw($val);
                         break;
+                    case 'LIKE':
+                        array_push($likes, [$field, $condition, $val]);
+                        break;
                     default:
                         $this->model = $this->model->where($field, $condition, $val);
                 }
@@ -1152,6 +1156,12 @@ abstract class BaseRepository implements RepositoryInterface, RepositoryCriteria
                 $this->model = $this->model->where($field, '=', $value);
             }
         }
+        $this->model->where(function($query) use ($likes)   {
+            foreach ($likes as $like)   {
+                $query->orWhere($like[0], 'like', $like[2]);
+            }
+        });
+        dd($this->model);
     }
 
     /**
