@@ -44,7 +44,7 @@
   },
   "autoload": {
     "psr-4": {
-      "YusufTogtay\\Repository\\": "src/Prettus/Repository/"
+      "YusufTogtay\\Repository\\": "src/YusufTogtay/Repository/"
     }
   },
   "config": {
