@@ -5,7 +5,7 @@ use Exception;
 
 /**
  * Class FileAlreadyExistsException
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class FileAlreadyExistsException extends Exception

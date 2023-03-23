@@ -2,15 +2,15 @@
 namespace YusufTogtay\Repository\Generators\Commands;
 
 use Illuminate\Console\Command;
-use Prettus\Repository\Generators\FileAlreadyExistsException;
-use Prettus\Repository\Generators\PresenterGenerator;
-use Prettus\Repository\Generators\TransformerGenerator;
+use YusufTogtay\Repository\Generators\FileAlreadyExistsException;
+use YusufTogtay\Repository\Generators\PresenterGenerator;
+use YusufTogtay\Repository\Generators\TransformerGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class PresenterCommand
- * @package Prettus\Repository\Generators\Commands
+ * @package YusufTogtay\Repository\Generators\Commands
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class PresenterCommand extends Command

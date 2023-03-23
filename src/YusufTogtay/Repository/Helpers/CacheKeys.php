@@ -4,7 +4,7 @@ namespace YusufTogtay\Repository\Helpers;
 
 /**
  * Class CacheKeys
- * @package Prettus\Repository\Helpers
+ * @package YusufTogtay\Repository\Helpers
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class CacheKeys

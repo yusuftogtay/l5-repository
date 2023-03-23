@@ -1,12 +1,12 @@
 <?php
 namespace YusufTogtay\Repository\Generators;
 
-use Prettus\Repository\Generators\Migrations\RulesParser;
-use Prettus\Repository\Generators\Migrations\SchemaParser;
+use YusufTogtay\Repository\Generators\Migrations\RulesParser;
+use YusufTogtay\Repository\Generators\Migrations\SchemaParser;
 
 /**
  * Class ValidatorGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class ValidatorGenerator extends Generator

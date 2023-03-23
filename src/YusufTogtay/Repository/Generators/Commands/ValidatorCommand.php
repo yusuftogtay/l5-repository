@@ -3,14 +3,14 @@ namespace YusufTogtay\Repository\Generators\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Prettus\Repository\Generators\FileAlreadyExistsException;
-use Prettus\Repository\Generators\ValidatorGenerator;
+use YusufTogtay\Repository\Generators\FileAlreadyExistsException;
+use YusufTogtay\Repository\Generators\ValidatorGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class ValidatorCommand
- * @package Prettus\Repository\Generators\Commands
+ * @package YusufTogtay\Repository\Generators\Commands
  */
 class ValidatorCommand extends Command
 {

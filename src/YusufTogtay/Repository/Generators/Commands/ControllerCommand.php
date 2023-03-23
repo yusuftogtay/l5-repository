@@ -3,14 +3,14 @@ namespace YusufTogtay\Repository\Generators\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Prettus\Repository\Generators\ControllerGenerator;
-use Prettus\Repository\Generators\FileAlreadyExistsException;
+use YusufTogtay\Repository\Generators\ControllerGenerator;
+use YusufTogtay\Repository\Generators\FileAlreadyExistsException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class ControllerCommand
- * @package Prettus\Repository\Generators\Commands
+ * @package YusufTogtay\Repository\Generators\Commands
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class ControllerCommand extends Command

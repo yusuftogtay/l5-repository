@@ -6,7 +6,7 @@ use Illuminate\Support\Arr;
 
 /**
  * Class RulesParser
- * @package Prettus\Repository\Generators\Migrations
+ * @package YusufTogtay\Repository\Generators\Migrations
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RulesParser implements Arrayable

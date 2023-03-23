@@ -5,8 +5,8 @@ $NAMESPACE$
 use Illuminate\Http\Request;
 
 use $APPNAME$Http\Requests;
-use Prettus\Validator\Contracts\ValidatorInterface;
-use Prettus\Validator\Exceptions\ValidatorException;
+use YusufTogtay\Validator\Contracts\ValidatorInterface;
+use YusufTogtay\Validator\Exceptions\ValidatorException;
 use $APPNAME$Http\Requests\$CLASS$CreateRequest;
 use $APPNAME$Http\Requests\$CLASS$UpdateRequest;
 $REPOSITORY$
@@ -48,7 +48,7 @@ class $CONTROLLER$Controller extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $this->repository->pushCriteria(app('YusufTogtay\Repository\Criteria\RequestCriteria'));
         $$PLURAL$ = $this->repository->all();
 
         if (request()->wantsJson()) {
@@ -68,7 +68,7 @@ class $CONTROLLER$Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     * @throws \YusufTogtay\Validator\Exceptions\ValidatorException
      */
     public function store($CLASS$CreateRequest $request)
     {
@@ -144,7 +144,7 @@ class $CONTROLLER$Controller extends Controller
      *
      * @return Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     * @throws \YusufTogtay\Validator\Exceptions\ValidatorException
      */
     public function update($CLASS$UpdateRequest $request, $id)
     {

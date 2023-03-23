@@ -2,8 +2,8 @@
 
 $NAMESPACE$
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
+use YusufTogtay\Repository\Eloquent\BaseRepository;
+use YusufTogtay\Repository\Criteria\RequestCriteria;
 use $REPOSITORY$
 use $MODEL$;
 $USE_VALIDATOR$
@@ -34,5 +34,5 @@ class $CLASS$RepositoryEloquent extends BaseRepository implements $CLASS$Reposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

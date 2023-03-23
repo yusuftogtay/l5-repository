@@ -4,7 +4,7 @@ namespace YusufTogtay\Repository\Generators;
 
 /**
  * Class CriteriaGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class CriteriaGenerator extends Generator

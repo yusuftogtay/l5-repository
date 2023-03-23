@@ -3,7 +3,7 @@ namespace YusufTogtay\Repository\Generators;
 
 /**
  * Class BindingsGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class BindingsGenerator extends Generator

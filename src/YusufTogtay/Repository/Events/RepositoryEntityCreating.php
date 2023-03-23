@@ -3,12 +3,12 @@
 namespace YusufTogtay\Repository\Events;
 
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\RepositoryInterface;
+use YusufTogtay\Repository\Contracts\RepositoryInterface;
 
 /**
  * Class RepositoryEntityCreated
  *
- * @package Prettus\Repository\Events
+ * @package YusufTogtay\Repository\Events
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RepositoryEntityCreating extends RepositoryEventBase

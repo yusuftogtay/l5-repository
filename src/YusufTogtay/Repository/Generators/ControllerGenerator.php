@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 
 /**
  * Class ControllerGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class ControllerGenerator extends Generator

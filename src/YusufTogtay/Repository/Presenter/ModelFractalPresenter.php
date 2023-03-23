@@ -2,11 +2,11 @@
 namespace YusufTogtay\Repository\Presenter;
 
 use Exception;
-use Prettus\Repository\Transformer\ModelTransformer;
+use YusufTogtay\Repository\Transformer\ModelTransformer;
 
 /**
  * Class ModelFractalPresenter
- * @package Prettus\Repository\Presenter
+ * @package YusufTogtay\Repository\Presenter
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class ModelFractalPresenter extends FractalPresenter

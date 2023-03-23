@@ -3,14 +3,14 @@
 namespace YusufTogtay\Repository\Traits;
 
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Prettus\Repository\Contracts\CriteriaInterface;
-use Prettus\Repository\Helpers\CacheKeys;
+use YusufTogtay\Repository\Contracts\CriteriaInterface;
+use YusufTogtay\Repository\Helpers\CacheKeys;
 use ReflectionObject;
 use Exception;
 
 /**
  * Class CacheableRepository
- * @package Prettus\Repository\Traits
+ * @package YusufTogtay\Repository\Traits
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 trait CacheableRepository
@@ -151,8 +151,8 @@ trait CacheableRepository
     /**
      * Serialize single criterion with customized serialization of Closures.
      *
-     * @param  \Prettus\Repository\Contracts\CriteriaInterface $criterion
-     * @return \Prettus\Repository\Contracts\CriteriaInterface|array
+     * @param  \YusufTogtay\Repository\Contracts\CriteriaInterface $criterion
+     * @return \YusufTogtay\Repository\Contracts\CriteriaInterface|array
      *
      * @throws \Exception
      */

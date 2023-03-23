@@ -3,11 +3,11 @@
 namespace YusufTogtay\Repository\Traits;
 
 use Illuminate\Support\Arr;
-use Prettus\Repository\Contracts\PresenterInterface;
+use YusufTogtay\Repository\Contracts\PresenterInterface;
 
 /**
  * Class PresentableTrait
- * @package Prettus\Repository\Traits
+ * @package YusufTogtay\Repository\Traits
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 trait PresentableTrait
@@ -19,7 +19,7 @@ trait PresentableTrait
     protected $presenter = null;
 
     /**
-     * @param \Prettus\Repository\Contracts\PresenterInterface $presenter
+     * @param \YusufTogtay\Repository\Contracts\PresenterInterface $presenter
      *
      * @return $this
      */

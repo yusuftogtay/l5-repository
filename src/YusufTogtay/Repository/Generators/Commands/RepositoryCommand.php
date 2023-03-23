@@ -4,17 +4,17 @@ namespace YusufTogtay\Repository\Generators\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Prettus\Repository\Generators\FileAlreadyExistsException;
-use Prettus\Repository\Generators\MigrationGenerator;
-use Prettus\Repository\Generators\ModelGenerator;
-use Prettus\Repository\Generators\RepositoryEloquentGenerator;
-use Prettus\Repository\Generators\RepositoryInterfaceGenerator;
+use YusufTogtay\Repository\Generators\FileAlreadyExistsException;
+use YusufTogtay\Repository\Generators\MigrationGenerator;
+use YusufTogtay\Repository\Generators\ModelGenerator;
+use YusufTogtay\Repository\Generators\RepositoryEloquentGenerator;
+use YusufTogtay\Repository\Generators\RepositoryInterfaceGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class RepositoryCommand
- * @package Prettus\Repository\Generators\Commands
+ * @package YusufTogtay\Repository\Generators\Commands
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RepositoryCommand extends Command

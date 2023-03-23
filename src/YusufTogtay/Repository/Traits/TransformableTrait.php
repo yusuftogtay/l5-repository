@@ -4,7 +4,7 @@ namespace YusufTogtay\Repository\Traits;
 
 /**
  * Class TransformableTrait
- * @package Prettus\Repository\Traits
+ * @package YusufTogtay\Repository\Traits
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 trait TransformableTrait

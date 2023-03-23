@@ -3,7 +3,7 @@ namespace YusufTogtay\Repository\Contracts;
 
 /**
  * Interface RepositoryInterface
- * @package Prettus\Repository\Contracts
+ * @package YusufTogtay\Repository\Contracts
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 interface RepositoryInterface

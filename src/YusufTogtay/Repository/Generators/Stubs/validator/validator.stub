@@ -2,8 +2,8 @@
 
 $NAMESPACE$
 
-use \Prettus\Validator\Contracts\ValidatorInterface;
-use \Prettus\Validator\LaravelValidator;
+use \YusufTogtay\Validator\Contracts\ValidatorInterface;
+use \YusufTogtay\Validator\LaravelValidator;
 
 /**
  * Class $CLASS$Validator.

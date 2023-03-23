@@ -3,7 +3,7 @@ namespace YusufTogtay\Repository\Events;
 
 /**
  * Class RepositoryEntityDeleted
- * @package Prettus\Repository\Events
+ * @package YusufTogtay\Repository\Events
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RepositoryEntityDeleting extends RepositoryEventBase

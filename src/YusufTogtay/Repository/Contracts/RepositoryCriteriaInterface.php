@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface RepositoryCriteriaInterface
- * @package Prettus\Repository\Contracts
+ * @package YusufTogtay\Repository\Contracts
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 interface RepositoryCriteriaInterface

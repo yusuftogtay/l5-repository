@@ -5,7 +5,7 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * Class LumenRepositoryServiceProvider
- * @package Prettus\Repository\Providers
+ * @package YusufTogtay\Repository\Providers
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class LumenRepositoryServiceProvider extends ServiceProvider
@@ -24,8 +24,8 @@ class LumenRepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands('Prettus\Repository\Generators\Commands\RepositoryCommand');
-        $this->app->register('Prettus\Repository\Providers\EventServiceProvider');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\RepositoryCommand');
+        $this->app->register('YusufTogtay\Repository\Providers\EventServiceProvider');
     }
 
     /**

@@ -4,14 +4,14 @@ namespace YusufTogtay\Repository\Generators\Commands;
 use File;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Prettus\Repository\Generators\BindingsGenerator;
-use Prettus\Repository\Generators\FileAlreadyExistsException;
+use YusufTogtay\Repository\Generators\BindingsGenerator;
+use YusufTogtay\Repository\Generators\FileAlreadyExistsException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class BindingsCommand
- * @package Prettus\Repository\Generators\Commands
+ * @package YusufTogtay\Repository\Generators\Commands
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class BindingsCommand extends Command

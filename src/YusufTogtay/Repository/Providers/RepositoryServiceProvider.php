@@ -5,7 +5,7 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * Class RepositoryServiceProvider
- * @package Prettus\Repository\Providers
+ * @package YusufTogtay\Repository\Providers
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RepositoryServiceProvider extends ServiceProvider
@@ -42,15 +42,15 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands('Prettus\Repository\Generators\Commands\RepositoryCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\TransformerCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\PresenterCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\EntityCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\ValidatorCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\ControllerCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\BindingsCommand');
-        $this->commands('Prettus\Repository\Generators\Commands\CriteriaCommand');
-        $this->app->register('Prettus\Repository\Providers\EventServiceProvider');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\RepositoryCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\TransformerCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\PresenterCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\EntityCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\ValidatorCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\ControllerCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\BindingsCommand');
+        $this->commands('YusufTogtay\Repository\Generators\Commands\CriteriaCommand');
+        $this->app->register('YusufTogtay\Repository\Providers\EventServiceProvider');
     }
 
 

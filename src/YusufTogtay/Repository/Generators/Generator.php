@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 /**
  * Class Generator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 abstract class Generator

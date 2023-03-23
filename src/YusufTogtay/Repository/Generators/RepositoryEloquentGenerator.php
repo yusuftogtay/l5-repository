@@ -1,11 +1,11 @@
 <?php
 namespace YusufTogtay\Repository\Generators;
 
-use Prettus\Repository\Generators\Migrations\SchemaParser;
+use YusufTogtay\Repository\Generators\Migrations\SchemaParser;
 
 /**
  * Class RepositoryEloquentGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RepositoryEloquentGenerator extends Generator

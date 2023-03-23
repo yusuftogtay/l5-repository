@@ -6,13 +6,13 @@ use Illuminate\Contracts\Cache\Repository as CacheRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
-use Prettus\Repository\Contracts\RepositoryInterface;
-use Prettus\Repository\Events\RepositoryEventBase;
-use Prettus\Repository\Helpers\CacheKeys;
+use YusufTogtay\Repository\Contracts\RepositoryInterface;
+use YusufTogtay\Repository\Events\RepositoryEventBase;
+use YusufTogtay\Repository\Helpers\CacheKeys;
 
 /**
  * Class CleanCacheRepository
- * @package Prettus\Repository\Listeners
+ * @package YusufTogtay\Repository\Listeners
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class CleanCacheRepository

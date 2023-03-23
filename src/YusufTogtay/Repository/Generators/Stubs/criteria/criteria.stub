@@ -2,8 +2,8 @@
 
 $NAMESPACE$
 
-use Prettus\Repository\Contracts\CriteriaInterface;
-use Prettus\Repository\Contracts\RepositoryInterface;
+use YusufTogtay\Repository\Contracts\CriteriaInterface;
+use YusufTogtay\Repository\Contracts\RepositoryInterface;
 
 /**
  * Class $CLASS$Criteria.

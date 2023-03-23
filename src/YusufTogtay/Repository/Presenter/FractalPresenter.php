@@ -11,11 +11,11 @@ use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 use League\Fractal\Serializer\SerializerAbstract;
-use Prettus\Repository\Contracts\PresenterInterface;
+use YusufTogtay\Repository\Contracts\PresenterInterface;
 
 /**
  * Class FractalPresenter
- * @package Prettus\Repository\Presenter
+ * @package YusufTogtay\Repository\Presenter
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 abstract class FractalPresenter implements PresenterInterface

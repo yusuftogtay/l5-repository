@@ -3,7 +3,7 @@ namespace YusufTogtay\Repository\Generators\Migrations;
 
 /**
  * Class NameParser
- * @package Prettus\Repository\Generators\Migrations
+ * @package YusufTogtay\Repository\Generators\Migrations
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class NameParser

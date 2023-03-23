@@ -2,13 +2,13 @@
 
 namespace YusufTogtay\Repository\Generators;
 
-use Prettus\Repository\Generators\Migrations\NameParser;
-use Prettus\Repository\Generators\Migrations\SchemaParser;
+use YusufTogtay\Repository\Generators\Migrations\NameParser;
+use YusufTogtay\Repository\Generators\Migrations\SchemaParser;
 use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 /**
  * Class MigrationGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class MigrationGenerator extends Generator

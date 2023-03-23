@@ -5,12 +5,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Prettus\Repository\Contracts\CriteriaInterface;
-use Prettus\Repository\Contracts\RepositoryInterface;
+use YusufTogtay\Repository\Contracts\CriteriaInterface;
+use YusufTogtay\Repository\Contracts\RepositoryInterface;
 
 /**
  * Class RequestCriteria
- * @package Prettus\Repository\Criteria
+ * @package YusufTogtay\Repository\Criteria
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RequestCriteria implements CriteriaInterface

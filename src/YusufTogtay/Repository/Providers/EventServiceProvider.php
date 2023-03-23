@@ -5,7 +5,7 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * Class EventServiceProvider
- * @package Prettus\Repository\Providers
+ * @package YusufTogtay\Repository\Providers
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class EventServiceProvider extends ServiceProvider
@@ -17,14 +17,14 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Prettus\Repository\Events\RepositoryEntityCreated' => [
-            'Prettus\Repository\Listeners\CleanCacheRepository'
+        'YusufTogtay\Repository\Events\RepositoryEntityCreated' => [
+            'YusufTogtay\Repository\Listeners\CleanCacheRepository'
         ],
-        'Prettus\Repository\Events\RepositoryEntityUpdated' => [
-            'Prettus\Repository\Listeners\CleanCacheRepository'
+        'YusufTogtay\Repository\Events\RepositoryEntityUpdated' => [
+            'YusufTogtay\Repository\Listeners\CleanCacheRepository'
         ],
-        'Prettus\Repository\Events\RepositoryEntityDeleted' => [
-            'Prettus\Repository\Listeners\CleanCacheRepository'
+        'YusufTogtay\Repository\Events\RepositoryEntityDeleted' => [
+            'YusufTogtay\Repository\Listeners\CleanCacheRepository'
         ]
     ];
 

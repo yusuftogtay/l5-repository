@@ -3,7 +3,7 @@
 $NAMESPACE$
 
 use $TRANSFORMER$;
-use Prettus\Repository\Presenter\FractalPresenter;
+use YusufTogtay\Repository\Presenter\FractalPresenter;
 
 /**
  * Class $CLASS$Presenter.

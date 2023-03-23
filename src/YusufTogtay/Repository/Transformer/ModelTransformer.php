@@ -1,11 +1,11 @@
 <?php namespace YusufTogtay\Repository\Transformer;
 
 use League\Fractal\TransformerAbstract;
-use Prettus\Repository\Contracts\Transformable;
+use YusufTogtay\Repository\Contracts\Transformable;
 
 /**
  * Class ModelTransformer
- * @package Prettus\Repository\Transformer
+ * @package YusufTogtay\Repository\Transformer
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class ModelTransformer extends TransformerAbstract

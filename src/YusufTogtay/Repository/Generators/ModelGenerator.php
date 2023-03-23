@@ -2,11 +2,11 @@
 
 namespace YusufTogtay\Repository\Generators;
 
-use Prettus\Repository\Generators\Migrations\SchemaParser;
+use YusufTogtay\Repository\Generators\Migrations\SchemaParser;
 
 /**
  * Class ModelGenerator
- * @package Prettus\Repository\Generators
+ * @package YusufTogtay\Repository\Generators
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class ModelGenerator extends Generator

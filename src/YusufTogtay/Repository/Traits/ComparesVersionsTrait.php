@@ -3,7 +3,7 @@ namespace YusufTogtay\Repository\Traits;
 
 /**
  * Trait ComparesVersionsTrait
- * @package Prettus\Repository\Traits
+ * @package YusufTogtay\Repository\Traits
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 trait ComparesVersionsTrait

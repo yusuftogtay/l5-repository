@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 /**
  * Class SchemaParser
- * @package Prettus\Repository\Generators\Migrations
+ * @package YusufTogtay\Repository\Generators\Migrations
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class SchemaParser implements Arrayable

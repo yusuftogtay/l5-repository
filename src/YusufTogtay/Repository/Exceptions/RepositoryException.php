@@ -5,7 +5,7 @@ use Exception;
 
 /**
  * Class RepositoryException
- * @package Prettus\Repository\Exceptions
+ * @package YusufTogtay\Repository\Exceptions
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RepositoryException extends Exception

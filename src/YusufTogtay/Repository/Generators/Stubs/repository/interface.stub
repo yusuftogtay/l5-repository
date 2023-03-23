@@ -2,7 +2,7 @@
 
 $NAMESPACE$
 
-use Prettus\Repository\Contracts\RepositoryInterface;
+use YusufTogtay\Repository\Contracts\RepositoryInterface;
 
 /**
  * Interface $CLASS$Repository.
