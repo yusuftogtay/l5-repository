@@ -58,7 +58,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Prettus\\Repository\\Providers\\RepositoryServiceProvider"
+        "YusufTogtay\\Repository\\Providers\\RepositoryServiceProvider"
       ]
     }
   },
