@@ -25,7 +25,6 @@ class RequestCriteria implements CriteriaInterface
         $this->request = $request;
     }
 
-
     /**
      * Apply criteria in query repository
      *
@@ -49,97 +48,140 @@ class RequestCriteria implements CriteriaInterface
         $sortedBy = !empty($sortedBy) ? $sortedBy : 'asc';
 
         if ($search && is_array($fieldsSearchable) && count($fieldsSearchable)) {
-
             $searchFields = is_array($searchFields) || is_null($searchFields) ? $searchFields : explode(';', $searchFields);
             $isFirstField = true;
             $searchData = $this->parserSearchData($search);
             $fields = $this->parserFieldsSearch($fieldsSearchable, $searchFields, array_keys($searchData));
             $search = $this->parserSearchValue($search);
             $modelForceAndWhere = strtolower($searchJoin) === 'and';
-
+            //dd($searchData, $fields, $search);
             $model = $model->where(function ($query) use ($fields, $search, $searchData, $isFirstField, $modelForceAndWhere) {
                 /** @var Builder $query */
-
                 foreach ($fields as $field => $condition) {
-
                     if (is_numeric($field)) {
                         $field = $condition;
-                        $condition = "=";
+                        $condition = '=';
                     }
-
                     $value = null;
-
                     $condition = trim(strtolower($condition));
-
                     if (isset($searchData[$field])) {
-                        $value = ($condition == "like" || $condition == "ilike") ? "%{$searchData[$field]}%" : $searchData[$field];
+                        if (!is_array($searchData[$field])) {
+                            $value = $condition == 'like' || $condition == 'ilike' ? "%{$searchData[$field]}%" : $searchData[$field];
+                        } else {
+                            $value = $searchData[$field];
+                        }
                     } else {
-                        if (!is_null($search) && !in_array($condition,['in','between'])) {
-                            $value = ($condition == "like" || $condition == "ilike") ? "%{$search}%" : $search;
+                        if (!is_null($search) && !in_array($condition, ['in', 'between'])) {
+                            $value = $condition == 'like' || $condition == 'ilike' ? "%{$search}%" : $search;
                         }
                     }
-
                     $relation = null;
-                    if(stripos($field, '.')) {
+                    if (stripos($field, '.')) {
                         $explode = explode('.', $field);
                         $field = array_pop($explode);
                         $relation = implode('.', $explode);
                     }
-                    if($condition === 'in'){
-                        $value = explode(',',$value);
-                        if( trim($value[0]) === "" || $field == $value[0]){
+                    if ($condition === 'in') {
+                        $value = explode(',', $value);
+                        if (trim($value[0]) === '' || $field == $value[0]) {
                             $value = null;
                         }
                     }
-                    if($condition === 'between'){
-                        $value = explode(',',$value);
-                        if(count($value) < 2){
+                    if ($condition === 'between') {
+                        $value = explode(',', $value);
+                        if (count($value) < 2) {
                             $value = null;
                         }
                     }
                     $modelTableName = $query->getModel()->getTable();
-                    if ( $isFirstField || $modelForceAndWhere ) {
+                    if ($isFirstField || $modelForceAndWhere) {
                         if (!is_null($value)) {
-                            if(!is_null($relation)) {
-                                $query->whereHas($relation, function($query) use($field,$condition,$value) {
-                                    if($condition === 'in'){
-                                        $query->whereIn($field,$value);
-                                    }elseif($condition === 'between'){
-                                        $query->whereBetween($field,$value);
-                                    }else{
-                                        $query->where($field,$condition,$value);
+                            if (!is_null($relation)) {
+                                $query->whereHas($relation, function ($query) use ($field, $condition, $value) {
+                                    if (is_array($value)) {
+                                        foreach ($value as $val) {
+                                            if ($condition === 'in') {
+                                                $query->whereIn($field, $val);
+                                            } elseif ($condition === 'between') {
+                                                $query->whereBetween($field, $val);
+                                            } else {
+                                                $query->where($field, $condition, $val);
+                                            }
+                                        }
+                                    } else {
+                                        if ($condition === 'in') {
+                                            $query->whereIn($field, $value);
+                                        } elseif ($condition === 'between') {
+                                            $query->whereBetween($field, $value);
+                                        } else {
+                                            $query->where($field, $condition, $value);
+                                        }
                                     }
                                 });
+                            } elseif (is_array($value)) {
+                                foreach ($value as $val) {
+                                    if ($condition === 'in') {
+                                        $query->whereIn($modelTableName . '.' . $field, $val);
+                                    } elseif ($condition === 'between') {
+                                        $query->whereBetween($modelTableName . '.' . $field, $val);
+                                    } else {
+                                        $query->orWhere($modelTableName . '.' . $field, $condition, $val);
+                                    }
+                                }
                             } else {
-                                if($condition === 'in'){
-                                    $query->whereIn($modelTableName.'.'.$field,$value);
-                                }elseif($condition === 'between'){
-                                    $query->whereBetween($modelTableName.'.'.$field,$value);
-                                }else{
-                                    $query->where($modelTableName.'.'.$field,$condition,$value);
+                                if ($condition === 'in') {
+                                    $query->whereIn($modelTableName . '.' . $field, $value);
+                                } elseif ($condition === 'between') {
+                                    $query->whereBetween($modelTableName . '.' . $field, $value);
+                                } else {
+                                    $query->where($modelTableName . '.' . $field, $condition, $value);
                                 }
                             }
                             $isFirstField = false;
                         }
                     } else {
                         if (!is_null($value)) {
-                            if(!is_null($relation)) {
-                                $query->orWhereHas($relation, function($query) use($field,$condition,$value) {
-                                    if($condition === 'in'){
-                                        $query->whereIn($field,$value);
-                                    }elseif($condition === 'between'){
-                                        $query->whereBetween($field, $value);
-                                    }else{
-                                        $query->where($field,$condition,$value);
+                            if (!is_null($relation)) {
+                                $query->orWhereHas($relation, function ($query) use ($field, $condition, $value) {
+                                    if (is_array($value))   {
+                                        foreach ($value as $val) {
+                                            if ($condition === 'in') {
+                                                $query->whereIn($field, $val);
+                                            } elseif ($condition === 'between') {
+                                                $query->whereBetween($field, $val);
+                                            } else {
+                                                $query->orWhere($field, $condition, $val);
+                                            }
+                                        }
+                                    } else {
+                                        if ($condition === 'in') {
+                                            $query->whereIn($field, $value);
+                                        } elseif ($condition === 'between') {
+                                            $query->whereBetween($field, $value);
+                                        } else {
+                                            $query->where($field, $condition, $value);
+                                        }
                                     }
                                 });
                             } else {
-                                if($condition === 'in'){
-                                    $query->orWhereIn($modelTableName.'.'.$field, $value);
-                                }elseif($condition === 'between'){
-                                    $query->whereBetween($modelTableName.'.'.$field,$value);
-                                }else{
-                                    $query->orWhere($modelTableName.'.'.$field, $condition, $value);
+                                if (is_array($value))   {
+                                    foreach($value as $val) {
+                                        if ($condition === 'in') {
+                                            $query->orWhereIn($modelTableName . '.' . $field, $val);
+                                        } elseif ($condition === 'between') {
+                                            $query->whereBetween($modelTableName . '.' . $field, $val);
+                                        } else {
+                                            $query->orWhere($modelTableName . '.' . $field, $condition, $val);
+                                        }
+                                    }
+                                } else {
+                                    if ($condition === 'in') {
+                                        $query->orWhereIn($modelTableName . '.' . $field, $value);
+                                    } elseif ($condition === 'between') {
+                                        $query->whereBetween($modelTableName . '.' . $field, $value);
+                                    } else {
+                                        $query->orWhere($modelTableName . '.' . $field, $condition, $value);
+                                    }
                                 }
                             }
                         }
@@ -147,10 +189,9 @@ class RequestCriteria implements CriteriaInterface
                 }
             });
         }
-
         if (isset($orderBy) && !empty($orderBy)) {
             $orderBySplit = explode(';', $orderBy);
-            if(count($orderBySplit) > 1) {
+            if (count($orderBySplit) > 1) {
                 $sortedBySplit = explode(';', $sortedBy);
                 foreach ($orderBySplit as $orderBySplitItemKey => $orderBySplitItem) {
                     $sortedBy = isset($sortedBySplit[$orderBySplitItemKey]) ? $sortedBySplit[$orderBySplitItemKey] : $sortedBySplit[0];
@@ -165,7 +206,6 @@ class RequestCriteria implements CriteriaInterface
             if (is_string($filter)) {
                 $filter = explode(';', $filter);
             }
-
             $model = $model->select($filter);
         }
 
@@ -191,7 +231,7 @@ class RequestCriteria implements CriteriaInterface
     protected function parserFieldsOrderBy($model, $orderBy, $sortedBy)
     {
         $split = explode('|', $orderBy);
-        if(count($split) > 1) {
+        if (count($split) > 1) {
             /*
              * ex.
              * products|description -> join products on current_table.product_id = products.id order by description
@@ -209,10 +249,10 @@ class RequestCriteria implements CriteriaInterface
                 $sortTable = $split[0];
 
                 $commaExp = explode(',', $split[1]);
-                $keyName = $table.'.'.$split[1];
+                $keyName = $table . '.' . $split[1];
                 if (count($commaExp) > 1) {
-                    $keyName = $table.'.'.$commaExp[0];
-                    $localKey = '.'.$commaExp[1];
+                    $keyName = $table . '.' . $commaExp[0];
+                    $localKey = '.' . $commaExp[1];
                 }
             } else {
                 /*
@@ -223,13 +263,13 @@ class RequestCriteria implements CriteriaInterface
                  * products -> product_id
                  */
                 $prefix = Str::singular($sortTable);
-                $keyName = $table.'.'.$prefix.'_id';
+                $keyName = $table . '.' . $prefix . '_id';
             }
 
             $model = $model
-                ->leftJoin($sortTable, $keyName, '=', $sortTable.$localKey)
+                ->leftJoin($sortTable, $keyName, '=', $sortTable . $localKey)
                 ->orderBy($sortColumn, $sortedBy)
-                ->addSelect($table.'.*');
+                ->addSelect($table . '.*');
         } else {
             $model = $model->orderBy($orderBy, $sortedBy);
         }
@@ -244,20 +284,21 @@ class RequestCriteria implements CriteriaInterface
     protected function parserSearchData($search)
     {
         $searchData = [];
-
         if (stripos($search, ':')) {
             $fields = explode(';', $search);
-
             foreach ($fields as $row) {
                 try {
-                    list($field, $value) = explode(':', $row);
-                    $searchData[$field] = $value;
+                    [$field, $value] = explode(':', $row);
+                    if (isset($searchData[$field])) {
+                        array_push($searchData[$field], $value);
+                    } else {
+                        $searchData[$field] = [$value];
+                    }
                 } catch (\Exception $e) {
                     //Surround offset error
                 }
             }
         }
-
         return $searchData;
     }
 
@@ -268,7 +309,6 @@ class RequestCriteria implements CriteriaInterface
      */
     protected function parserSearchValue($search)
     {
-
         if (stripos($search, ';') || stripos($search, ':')) {
             $values = explode(';', $search);
             foreach ($values as $value) {
@@ -287,10 +327,7 @@ class RequestCriteria implements CriteriaInterface
     protected function parserFieldsSearch(array $fields = [], array $searchFields = null, array $dataKeys = null)
     {
         if (!is_null($searchFields) && count($searchFields)) {
-            $acceptedConditions = config('repository.criteria.acceptedConditions', [
-                '=',
-                'like'
-            ]);
+            $acceptedConditions = config('repository.criteria.acceptedConditions', ['=', 'like']);
             $originalFields = $fields;
             $fields = [];
 
@@ -316,7 +353,7 @@ class RequestCriteria implements CriteriaInterface
             foreach ($originalFields as $field => $condition) {
                 if (is_numeric($field)) {
                     $field = $condition;
-                    $condition = "=";
+                    $condition = '=';
                 }
                 if (in_array($field, $searchFields)) {
                     $fields[$field] = $condition;
@@ -326,7 +363,6 @@ class RequestCriteria implements CriteriaInterface
             if (count($fields) == 0) {
                 throw new \Exception(trans('repository::criteria.fields_not_accepted', ['field' => implode(',', $searchFields)]));
             }
-
         }
 
         return $fields;
