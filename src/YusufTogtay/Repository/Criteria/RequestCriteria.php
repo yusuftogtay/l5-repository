@@ -10,7 +10,7 @@ use YusufTogtay\Repository\Contracts\RepositoryInterface;
 
 /**
  * Class RequestCriteria
- * @package YusufTogtay\Repository\Criteria
+ * @package Prettus\Repository\Criteria
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class RequestCriteria implements CriteriaInterface
